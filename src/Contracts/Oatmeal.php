@@ -1,6 +1,9 @@
 <?php
 namespace DerekHamilton\Oatmeal\Contracts;
 
+/**
+ * Oatmeal cookie management API
+ */
 interface Oatmeal
 {
     /**

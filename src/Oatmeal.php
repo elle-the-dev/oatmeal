@@ -3,6 +3,13 @@ namespace DerekHamilton\Oatmeal;
 
 use DerekHamilton\Oatmeal\Contracts\Oatmeal as OatmealContract;
 
+/**
+ * Primary implementation of Oatmeal Interface for cookie management
+ *
+ * In order to maintain the consistency of set() allowing a value to be
+ * retrieved with get(), Oatmeal will update the $_COOKIE superglobal
+ * when using its operations.
+ */
 class Oatmeal implements OatmealContract
 {
     private $path;
