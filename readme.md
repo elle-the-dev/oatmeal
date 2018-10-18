@@ -21,6 +21,8 @@ If we want to integrate into Laravel, we'll additionally want to run
 php artisan vendor:publish
 ~~~
 
+This will publish the config file to `config/oatmeal.php`.
+
 Also for Laravel, if we don't use auto-discovery, we'll need to add `OatmealServiceProvider` to the providers array in `config/app.php`
 
 ~~~php
@@ -60,6 +62,8 @@ class ExampleController extends Controller
     }
 }
 ~~~
+
+When injecting in Laravel, Oatmeal will automatically be loaded using the config file `config/oatmeal.php`.
 
 #### Setting ####
 

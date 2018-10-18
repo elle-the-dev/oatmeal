@@ -5,6 +5,13 @@ use Illuminate\Support\ServiceProvider;
 use DerekHamilton\Oatmeal\Contracts\Oatmeal as OatmealContract;
 use DerekHamilton\Oatmeal\Oatmeal;
 
+/**
+ * Laravel Service Provider
+ *
+ * Service Provider simplifies integration into Laravel by autowiring
+ * the Oatmeal interface to the concrete Oatmeal instance using the config
+ * settings from file.
+ */
 class OatmealServiceProvider extends ServiceProvider
 {
     public function boot()

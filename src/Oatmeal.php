@@ -55,6 +55,8 @@ class Oatmeal implements OatmealContract
         );
 
         if ($result) {
+            // set the $_COOKIE superglobal so set, get, pull, and forget
+            // are consistent with one-another on a request
             $_COOKIE[$name] = $value;
         }
 
@@ -71,7 +73,11 @@ class Oatmeal implements OatmealContract
     public function forget(string $name): OatmealContract
     {
         $this->set($name, false, -1);
+
+        // unset the $_COOKIE superglobal so set, get, pull, and forget
+        // are consistent with one-another on a request
         unset($_COOKIE[$name]);
+
         return $this;
     }
 
