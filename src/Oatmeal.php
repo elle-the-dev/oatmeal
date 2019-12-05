@@ -25,12 +25,12 @@ class Oatmeal implements OatmealContract
         $this->httpOnly = isset($config['httpOnly']) ? $config['httpOnly'] : true;
     }
 
-    public function get(string $name)
+    public function get(string $name): ?string
     {
         return isset($_COOKIE[$name]) ? $_COOKIE[$name] : null;
     }
 
-    public function pull(string $name)
+    public function pull(string $name): ?string
     {
         $value = $this->get($name);
 
@@ -42,12 +42,12 @@ class Oatmeal implements OatmealContract
         return $value;
     }
 
-    public function set(string $name, $value, int $minutes): bool
+    public function set(string $name, string $value, int $minutes): bool
     {
         $result = setcookie(
             $name,
             $value,
-            strtotime("+$minutes"),
+            strtotime("+$minutes") ?: 0,
             $this->path,
             $this->domain,
             $this->secure,
@@ -63,7 +63,7 @@ class Oatmeal implements OatmealContract
         return $result;
     }
 
-    public function forever(string $name, $value): bool
+    public function forever(string $name, string $value): bool
     {
         // shamelessly stole the 2628000 minutes number from Laravel CookieJar
         // it is exactly 5 years in minutes if we count 365 days even as a year
@@ -72,7 +72,7 @@ class Oatmeal implements OatmealContract
 
     public function forget(string $name): OatmealContract
     {
-        $this->set($name, false, -1);
+        $this->set($name, "", -1);
 
         // unset the $_COOKIE superglobal so set, get, pull, and forget
         // are consistent with one-another on a request

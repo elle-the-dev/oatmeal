@@ -1,9 +1,9 @@
 <?php
 namespace DerekHamilton\Oatmeal\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use DerekHamilton\Oatmeal\Contracts\Oatmeal as OatmealContract;
 use DerekHamilton\Oatmeal\Oatmeal;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * Laravel Service Provider
