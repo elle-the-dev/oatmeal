@@ -1,0 +1,31 @@
+{
+    "name": "elle-the-dev/oatmeal",
+    "description": "PHP cookie management in a modern, object-oriented manner.",
+    "keywords": ["php", "cookie", "manage", "setcookie"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^6.1|7.*",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ElleTheDev\\Oatmeal\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ElleTheDev\\Tests\\Oatmeal\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ElleTheDev\\Oatmeal\\Providers\\OatmealServiceProvider"
+            ]
+        }
+    }
+}
